@@ -1,0 +1,23 @@
+// This mirrors Meta's official bootstrap and stays standalone so vendor caching and failures remain isolated; update only with upstream behavior.
+(function (f, b, e, v, n, t, s) {
+  if (typeof f.fbq === "function") return;
+  n = f.fbq = function () {
+    if (typeof n.callMethod === "function") {
+      n.callMethod.apply(n, arguments);
+    } else {
+      n.queue.push(arguments);
+    }
+  };
+  if (typeof f._fbq !== "function") f._fbq = n;
+  n.push = n;
+  n.loaded = true;
+  n.version = "2.0";
+  n.queue = [];
+  t = b.createElement(e);
+  t.async = true;
+  t.src = v;
+  s = b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t, s);
+})(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+fbq("init", "1891783734880201");
+fbq("track", "PageView");

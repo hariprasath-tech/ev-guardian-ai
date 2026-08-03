@@ -1,0 +1,46 @@
+// This mirrors TikTok's official loader and keeps its expected SDK ID standalone so vendor caching and failures remain isolated.
+(function (w, d, t) {
+  w.TiktokAnalyticsObject = t;
+  var ttq = (w[t] = w[t] ?? []);
+  ttq.methods = [
+    "page",
+    "track",
+    "identify",
+    "instances",
+    "debug",
+    "on",
+    "off",
+    "once",
+    "ready",
+    "alias",
+    "group",
+    "enableCookie",
+    "disableCookie",
+  ];
+  ttq.setAndDefer = function (target, method) {
+    target[method] = function () {
+      target.push([method].concat(Array.prototype.slice.call(arguments, 0)));
+    };
+  };
+  for (var method of ttq.methods) {
+    ttq.setAndDefer(ttq, method);
+  }
+  ttq.load = function (id, options) {
+    var url = "https://analytics.tiktok.com/i18n/pixel/events.js";
+    ttq._i ??= {};
+    ttq._i[id] = [];
+    ttq._i[id]._u = url;
+    ttq._t ??= {};
+    ttq._t[id] = +new Date();
+    ttq._o ??= {};
+    ttq._o[id] = options ?? {};
+    var script = d.createElement("script");
+    script.type = "text/javascript";
+    script.async = true;
+    script.src = url + "?sdkid=" + id + "&lib=" + t;
+    var firstScript = d.getElementsByTagName("script")[0];
+    firstScript.parentNode.insertBefore(script, firstScript);
+  };
+  ttq.load("D6AUM6RC77U5LKV8NLHG");
+  ttq.page();
+})(window, document, "ttq");
