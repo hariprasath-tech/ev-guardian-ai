@@ -1,0 +1,15 @@
+node_modules/
+.env
+.expo/
+.rork/
+.next/
+__pycache__/
+*.py[cod]
+*.apk
+*.db
+.gradle/
+**/build/
+android/gradle-wrapper-temp/
+android/gradle-8.14.1-bin.zip
+.idea/
+

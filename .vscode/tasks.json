@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start Next.js Frontend",
+      "type": "shell",
+      "command": "cmd /c npm run dev",
+      "options": {
+        "cwd": "${workspaceFolder}/frontend"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Start FastAPI Backend",
+      "type": "shell",
+      "command": "& \"C:\\Users\\HP\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe\" -m uvicorn backend.main:app --reload --app-dir C:\\dev\\safecell_ai --host 127.0.0.1 --port 8000",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Start ESP32 Telemetry Simulator",
+      "type": "shell",
+      "command": "& \"C:\\Users\\HP\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe\" hardware/esp32_simulator.py",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Start Node Telemetry Server",
+      "type": "shell",
+      "command": "node",
+      "args": ["server.js"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+  ]
+}
