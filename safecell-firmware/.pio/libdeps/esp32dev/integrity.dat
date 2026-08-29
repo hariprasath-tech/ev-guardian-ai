@@ -1,0 +1,5 @@
+milesburton/DallasTemperature @ ^3.11.0
+miguel5612/MQUnifiedsensor @ ^3.0.0
+bblanchon/ArduinoJson @ ^7.0.0
+h2zero/NimBLE-Arduino @ ^1.4.2
+paulstoffregen/OneWire @ ^2.3.7
